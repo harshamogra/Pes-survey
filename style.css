@@ -2,13 +2,7 @@
 
 body {
        
-            @keyframes example
-{
-0% {background-color:aquamarine;}
-25% {background-color: yellowgreen;}
-50% {background-color: aqua;}
-100%  {background-color: greenyellow;}
-}
+           background-color: #f0844d;
 
    }
 
