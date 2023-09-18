@@ -1,13 +1,11 @@
-            @keyframes example
-{
-0% {background-color:aquamarine;}
+
+
+body {
+       
+            0% {background-color:aquamarine;}
 25% {background-color: yellowgreen;}
 50% {background-color: aqua;}
 100%  {background-color: greenyellow;}
-}
-
-body {
-       background-color: #f0844d;
    }
 
    form {
