@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>PES Students Survey</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+<body>
+    <form id="survey-form" action="#" method="post" onsubmit="return validateForm(event)">
+        <div class="center-logo" >
+            <img src="Pesu logo.png" alt="PESU Logo" id="center-logo" height="200px" width="auto">
+        </div>
+        <h1 class="center-logo">PES STUDENTS SURVEY</h1>
+        <p><strong>Please fill out the following information:</strong></p>
+        <table>
+            <tr>
+                <th><label for="name">Name:</label></th>
+                <td><input type="text" size="30" id="name" name="name" required></td>
+            </tr>
+            <tr>
+                <th><label for="SRN">SRN:</label></th>
+                <td><input type="text" id="SRN" name="SRN" required></td>
+            </tr>
+            <tr>
+                <th><label for="email">Email:</label></th>
+                <td><input type="email" id="email" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"></td>
+            </tr>
+            <tr>
+                <th><label for="phone">Phone No:</label></th>
+                <td><input type="tel" id="phone" name="phone" required pattern="[0-9]+"></td>
+            </tr>
+            <tr>
+               
+                <th>Gender:</th>
+                <td>
+                   <input type="radio" id="male" name="gender" value="male"/>Male
+                   <input type="radio" id="female" name="gender" value="female"/>Female
+                   
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;</td> 
+            </tr>
+            <tr>
+                <th>Interests:</th>
+                <td>
+                    <input type="checkbox" id="sports" name="interests" value="sports"/>Sports
+                    <input type="checkbox" id="music" name="interests" value="music"/>Music
+                    <input type="checkbox" id="Art" name="interests" value="Art"/>Art 
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;</td> 
+            </tr>
+            <tr>
+                <th><label for="section">Section:</label></th>
+                <td>
+                    <select id="section">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                        <option value="G">G</option>
+                        <option value="H">H</option>
+                        <option value="I">I</option>
+                        <option value="J">J</option>
+                        <option value="K">K</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Category of admission:</th>
+                <td>
+                    <select id="admission-category" size="2">
+                        <option value="Kcet">KCET</option>
+                        <option value="pessat">PESSAT</option>
+                        <option value="management">MANAGEMENT</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Comments or suggestions:</th>
+                <td><textarea name="comments" rows="5" cols="40"></textarea></td>
+            </tr>
+        </table>
+
+        <input type="submit" value="Submit" onclick="return validateForm(event)">
+        <input type="reset" value="Reset"  >
+    </form>
+    <script>
+        function validateForm(event) {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            var SRN = document.getElementById('SRN').value; // Capture SRN value
+
+            if (name === "") {
+                alert("Please enter your name.");
+                event.preventDefault(); // Prevent form submission
+                return false;
+            }
+
+            if (!/^[a-zA-Z\s]*$/.test(name)) {
+                alert("Name can only contain letters and spaces.");
+                event.preventDefault(); // Prevent form submission
+                return false;
+            }
+
+            if (SRN === "") { // Check SRN value
+                alert("Please enter your SRN.");
+                event.preventDefault(); // Prevent form submission
+                return false;
+            }
+            var srnPattern = /^PES2UG22(CS|EC)\d{3}$/;
+            var srnPattern = /^pes2ug22(cs|ec)\d{3}$/;
+        if (!srnPattern.test(SRN)) {
+            alert("SRN format is incorrect. It should start with 'PES2UG22' followed by 'CS' or 'EC' and then three numbers.");
+            event.preventDefault(); // Prevent form submission
+            return false;
+        }
+
+            if (email === "") {
+                alert("Please enter your email address.");
+                event.preventDefault(); // Prevent form submission
+                return false;
+            }
+
+            if (phone === "") {
+                alert("Please enter your phone number.");
+                event.preventDefault(); // Prevent form submission
+                return false;
+            }
+
+            if (!/^[0-9]+$/.test(phone)) {
+                alert("Phone number can only contain digits.");
+                event.preventDefault(); // Prevent form submission
+                return false;
+            }
+
+            alert("Form submitted successfully!"); // Display success message
+            return true;
+        }
+    </script>
+</body>
+
+</html>
